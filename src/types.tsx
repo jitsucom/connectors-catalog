@@ -1,9 +1,9 @@
+import {ReactNode} from "react";
+
 /**
  * Type of parameter
  */
-import {ReactNode} from "react";
-
-interface ParameterType<T> {
+export interface ParameterType<T> {
     /**
      * Unique name of the type
      */
@@ -18,21 +18,32 @@ export const stringType: ParameterType<string> = {
     typeName: "string"
 }
 
-export type SelectOption = {
-    id: string
-    displayName: string
-};
-
-export type SelectOptionCollection = {
-    options: SelectOption[]
-    multiple: boolean
+export const jsonType: ParameterType<string> = {
+    typeName: "json"
 }
 
-export const selectionType = (options: string[], multiple = true): ParameterType<SelectOptionCollection>  => {
+export const yamlType: ParameterType<string> = {
+    typeName: "yaml"
+}
+
+export interface SelectOption {
+    id: string
+    displayName: string
+}
+
+export interface SelectOptionCollection {
+    options: SelectOption[]
+    /**
+     * Maximum options allowed to be selected
+     */
+    maxOptions: number
+}
+
+export const selectionType = (options: string[], maxOptions: number = 1): ParameterType<SelectOptionCollection>  => {
     return {
         data: {
             options: options.map((id) => ({displayName: id, id: id})),
-            multiple
+            maxOptions
         },
         typeName: "selection",
     }
@@ -51,6 +62,11 @@ export type Parameter = {
      * Type of parameter
      */
     type: ParameterType<any>
+
+    /**
+     *  
+     */
+    documentation?: ReactNode
 }
 
 interface CollectionParameter extends Parameter {
@@ -59,11 +75,10 @@ interface CollectionParameter extends Parameter {
      * (see SourceConnector.collectionTypes)
      */
     applyOnlyTo?: string[] | string
-
 }
 
 
-export type SourceConnector = {
+export interface SourceConnector {
     /**
      * Name of connector that should be displayed
      */
