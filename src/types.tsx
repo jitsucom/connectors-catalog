@@ -18,12 +18,23 @@ export const stringType: ParameterType<string> = {
     typeName: "string"
 }
 
+export const intType: ParameterType<bigint> = {
+    typeName: "int"
+}
+
 export const jsonType: ParameterType<string> = {
     typeName: "json"
 }
 
 export const yamlType: ParameterType<string> = {
     typeName: "yaml"
+}
+
+/**
+ * YYYY-MM-DD
+ */
+export const dashDateType: ParameterType<string> = {
+    typeName: "dashDate"
 }
 
 export interface SelectOption {
@@ -64,6 +75,11 @@ export type Parameter = {
     type: ParameterType<any>
 
     /**
+     *  Flag describes required/optional nature of the field. IF empty - field is optional
+     */
+    required?: boolean
+
+    /**
      *  
      */
     documentation?: ReactNode
@@ -76,7 +92,6 @@ interface CollectionParameter extends Parameter {
      */
     applyOnlyTo?: string[] | string
 }
-
 
 export interface SourceConnector {
     /**
