@@ -80,9 +80,15 @@ export type Parameter = {
     required?: boolean
 
     /**
-     *  
+     * Documentation
      */
     documentation?: ReactNode
+
+    /**
+     * If not undefined: the parameter should not be configurable at all (hidden from UI) and
+     * it's value should be always constant
+     */
+    constant?: any
 }
 
 interface CollectionParameter extends Parameter {
@@ -119,4 +125,6 @@ export interface SourceConnector {
      * If collections are limited to certain names, list them here
      */
     collectionTypes: string[]
+
+    description?: ReactNode
 }
