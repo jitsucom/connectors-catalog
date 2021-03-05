@@ -1,5 +1,5 @@
 import {intType, jsonType, selectionType, SourceConnector, stringType} from "./types";
-import {ReactNode} from "react";
+import * as React from 'react';
 import {allSingerTaps, SingerTap} from "./singer";
 
 
