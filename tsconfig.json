@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es6",
+    "moduleResolution" : "Node",
     "outDir": "build/dist",
-    "target": "es5",
+    "target": "es6",
     "sourceMap": true,
     "jsx": "preserve"
 
   },
   "include": [
     "**/*.ts",
+    "**/*.svg",
     "**/*.tsx"
   ],
   "exclude": [

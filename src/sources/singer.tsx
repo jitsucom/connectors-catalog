@@ -238,7 +238,7 @@ export const allSingerTaps: SingerTap[] = [
         hasNativeEquivalent: false
     },
     {
-        pic: logos.tap_google_analytics_360,
+        pic: null,
         displayName: "Google Analytics 360",
         tap: "tap-google-analytics-360",
         stable: true,
@@ -490,10 +490,10 @@ export const allSingerTaps: SingerTap[] = [
         hasNativeEquivalent: false
     },
     {
-        pic: logos.tap_recharge,
+        pic: null,
         displayName: "Recharge",
         tap: "tap-recharge",
-        stable: true,
+        stable: false,
         hasNativeEquivalent: false
     },
     {
@@ -594,13 +594,13 @@ export const allSingerTaps: SingerTap[] = [
         stable: true,
         hasNativeEquivalent: false
     },
-    {
-        pic: logos.tap_square,
-        displayName: "Square",
-        tap: "tap-square",
-        stable: true,
-        hasNativeEquivalent: false
-    },
+    // {
+    //     pic: logos.tap_square,
+    //     displayName: "Square",
+    //     tap: "tap-square",
+    //     stable: true,
+    //     hasNativeEquivalent: false
+    // },
     {
         pic: logos.tap_stripe,
         displayName: "Stripe",
