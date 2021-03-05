@@ -403,11 +403,10 @@ const
         }
     }
 
-export default {
-    allSourcesList: [
+export const allSources = [
         facebook, redis, firebase, googleAnalytics,
         singer(), ...allSingerTaps.filter(tap => !tap.hasNativeEquivalent && tap.pic).map(tap => singer(tap))
     ]
-}
+
 
 
