@@ -1,7 +1,7 @@
 import * as React from "react";
 
 function Svg(props) {
-  return <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 240 90" enableBackground="new 0 0 240 90" xmlSpace="preserve" width="1em" height="1em" {...props}><g id="Layer_2" display="none"><rect x={-10} y={0} display="inline" fill="none" stroke="#E8E7E7" strokeWidth={1.1277} strokeMiterlimit={10} width={260} height={90} /></g><g id="Layer_1"><g><linearGradient id="Type_1_" gradientUnits="userSpaceOnUse" x1={-530.4815} y1={-1135.0873} x2={-530.4815} y2={-1135.2328} gradientTransform="matrix(600.336 0 0 -236.9664 318604.2188 -268949.7812)"><stop offset={0} style={{
+  return <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 240 90" enableBackground="new 0 0 240 90" xmlSpace="preserve"   {...props}><g id="Layer_2" display="none"><rect x={-10} y={0} display="inline" fill="none" stroke="#E8E7E7" strokeWidth={1.1277} strokeMiterlimit={10} width={260} height={90} /></g><g id="Layer_1"><g><linearGradient id="Type_1_" gradientUnits="userSpaceOnUse" x1={-530.4815} y1={-1135.0873} x2={-530.4815} y2={-1135.2328} gradientTransform="matrix(600.336 0 0 -236.9664 318604.2188 -268949.7812)"><stop offset={0} style={{
             stopColor: "#338CCB"
           }} /><stop offset={1} style={{
             stopColor: "#0079BE"

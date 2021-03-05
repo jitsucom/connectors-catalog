@@ -1,7 +1,7 @@
 import * as React from "react";
 
 function Svg(props) {
-  return <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" enableBackground="new 0 0 200 200" xmlSpace="preserve" width="1em" height="1em" {...props}><rect fill="#54349C" width={200} height={200} /><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1={90.0431} y1={76.1707} x2={104.4648} y2={140.7253}><stop offset={0} style={{
+  return <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" enableBackground="new 0 0 200 200" xmlSpace="preserve"   {...props}><rect fill="#54349C" width={200} height={200} /><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1={90.0431} y1={76.1707} x2={104.4648} y2={140.7253}><stop offset={0} style={{
         stopColor: "#A18BE7"
       }} /><stop offset={0.3893} style={{
         stopColor: "#7D63C4"

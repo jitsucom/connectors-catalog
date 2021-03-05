@@ -1,7 +1,7 @@
 import * as React from "react";
 
 function Svg(props) {
-  return <svg width="1em" height="1em" viewBox="0 0 432.071 445.383" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" {...props}><g id="orginal" style={{
+  return <svg   viewBox="0 0 432.071 445.383" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" {...props}><g id="orginal" style={{
       fillRule: "nonzero",
       clipRule: "nonzero",
       stroke: "#000000",

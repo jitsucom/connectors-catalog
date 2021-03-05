@@ -3,7 +3,7 @@ import * as React from "react";
 function Svg(props) {
   return <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" style={{
     enableBackground: "new 0 0 200 200"
-  }} xmlSpace="preserve" width="1em" height="1em" {...props}><rect x={0} style={{
+  }} xmlSpace="preserve"   {...props}><rect x={0} style={{
       fill: "#33547D"
     }} width={200} height={200} /><g><path style={{
         fill: "#FFFFFF"
