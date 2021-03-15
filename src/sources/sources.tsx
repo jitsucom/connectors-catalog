@@ -344,7 +344,7 @@ const
         return {
             pic: singerTap?.pic || singerPic,
             displayName: singerTap?.displayName || "Singer Tap",
-            id: "singer",
+            id: `singer-${singerTap?.tap}`,
             collectionTypes: [],
             collectionParameters: [],
             configParameters: [
