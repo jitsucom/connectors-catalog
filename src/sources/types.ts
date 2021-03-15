@@ -91,7 +91,7 @@ export type Parameter = {
     constant?: any
 }
 
-interface CollectionParameter extends Parameter {
+export interface CollectionParameter extends Parameter {
     /**
      * If defined, should be applied only to specific collections
      * (see SourceConnector.collectionTypes)
