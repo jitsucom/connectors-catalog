@@ -61,7 +61,7 @@ const facebook: SourceConnector = {
 }
 
 const googleAnalytics: SourceConnector = {
-    pic: <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+    pic: <svg xmlns="http://www.w3.org/2000/svg">
         <g transform="matrix(.363638 0 0 .363636 -3.272763 -2.909091)">
             <path d="M130 29v132c0 14.77 10.2 23 21 23 10 0 21-7 21-23V30c0-13.54-10-22-21-22s-21 9.33-21 21z" fill="#f9ab00"/>
             <g fill="#e37400">
@@ -221,7 +221,7 @@ const googleAnalytics: SourceConnector = {
 }
 
 const googlePlay: SourceConnector = {
-    pic: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+    pic: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
         <path fill="#4db6ac" d="M7.705,4.043C7.292,4.15,7,4.507,7,5.121c0,1.802,0,18.795,0,18.795S7,42.28,7,43.091c0,0.446,0.197,0.745,0.5,0.856l20.181-20.064L7.705,4.043z"/>
         <path fill="#dce775" d="M33.237,18.36l-8.307-4.796c0,0-15.245-8.803-16.141-9.32C8.401,4.02,8.019,3.961,7.705,4.043l19.977,19.84L33.237,18.36z"/>
         <path fill="#d32f2f" d="M8.417,43.802c0.532-0.308,15.284-8.825,24.865-14.357l-5.601-5.562L7.5,43.947C7.748,44.038,8.066,44.004,8.417,43.802z"/>
@@ -263,7 +263,7 @@ const googlePlay: SourceConnector = {
 }
 
 const firebase: SourceConnector = {
-    pic: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+    pic: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
         <path fill="#ff8f00" d="M8,37L23.234,8.436c0.321-0.602,1.189-0.591,1.494,0.02L30,19L8,37z"/>
         <path fill="#ffa000" d="M8,36.992l5.546-34.199c0.145-0.895,1.347-1.089,1.767-0.285L26,22.992L8,36.992z"/>
         <path fill="#ff6f00" d="M8.008 36.986L8.208 36.829 25.737 22.488 20.793 13.012z"/>
@@ -298,7 +298,7 @@ const firebase: SourceConnector = {
 }
 
 const redis: SourceConnector = {
-    pic: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+    pic: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
         <path fill="#ff8f00" d="M8,37L23.234,8.436c0.321-0.602,1.189-0.591,1.494,0.02L30,19L8,37z"/>
         <path fill="#ffa000" d="M8,36.992l5.546-34.199c0.145-0.895,1.347-1.089,1.767-0.285L26,22.992L8,36.992z"/>
         <path fill="#ff6f00" d="M8.008 36.986L8.208 36.829 25.737 22.488 20.793 13.012z"/>
