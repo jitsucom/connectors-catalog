@@ -366,15 +366,6 @@ const
                     </>
                 },
                 {
-                    displayName: "Singer Config JSON",
-                    id: "config",
-                    type: jsonType,
-                    required: true,
-                    documentation: <>
-                        <a target="_blank" href="https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#config">Read more about Singer Config</a>
-                    </>
-                },
-                {
                     displayName: "Singer Catalog JSON",
                     id: "catalog",
                     type: jsonType,
