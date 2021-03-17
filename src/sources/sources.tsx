@@ -404,7 +404,7 @@ const
     }
 
 export const allSources = [
-        facebook, redis, firebase, googleAnalytics,
+        facebook, redis, firebase, googleAnalytics, googlePlay,
         singer(), ...allSingerTaps.filter(tap => !tap.hasNativeEquivalent && tap.pic).map(tap => singer(tap))
     ]
 
