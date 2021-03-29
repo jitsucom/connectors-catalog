@@ -4,7 +4,7 @@ import {allSingerTaps, SingerTap} from "./singer";
 
 
 const facebook: SourceConnector = {
-    pic: <svg viewBox="0 0 50 50" fill="url(#gradient)">
+    pic: <svg viewBox="0 0 36 36" fill="url(#gradient)">
         <defs>
             <linearGradient x1="50%" x2="50%" y1="97.0782153%" y2="0%" id="gradient">
                 <stop offset="0%" stop-color="#0062E0" />
