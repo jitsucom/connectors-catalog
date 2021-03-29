@@ -4,9 +4,15 @@ import {allSingerTaps, SingerTap} from "./singer";
 
 
 const facebook: SourceConnector = {
-    pic: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-        <path
-            d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848 c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588 l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z"/>
+    pic: <svg viewBox="0 0 50 50" fill="url(#gradient)">
+        <defs>
+            <linearGradient x1="50%" x2="50%" y1="97.0782153%" y2="0%" id="gradient">
+                <stop offset="0%" stop-color="#0062E0" />
+                <stop offset="100%" stop-color="#19AFFF" />
+            </linearGradient>
+        </defs>
+        <path d="M15 35.8C6.5 34.3 0 26.9 0 18 0 8.1 8.1 0 18 0s18 8.1 18 18c0 8.9-6.5 16.3-15 17.8l-1-.8h-4l-1 .8z" />
+        <path fill="white" d="M25 23l.8-5H21v-3.5c0-1.4.5-2.5 2.7-2.5H26V7.4c-1.3-.2-2.7-.4-4-.4-4.1 0-7 2.5-7 7v4h-4.5v5H15v12.7c1 .2 2 .3 3 .3s2-.1 3-.3V23h4z"/>
     </svg>,
     collectionParameters: [
         {
