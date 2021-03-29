@@ -50,7 +50,7 @@ export interface SelectOptionCollection {
     maxOptions: number
 }
 
-export const selectionType = (options: string[], maxOptions: number = 1): ParameterType<SelectOptionCollection>  => {
+export const selectionType = (options: string[], maxOptions?: number): ParameterType<SelectOptionCollection>  => {
     return {
         data: {
             options: options.map((id) => ({displayName: id, id: id})),
