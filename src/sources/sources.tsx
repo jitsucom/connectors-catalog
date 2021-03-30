@@ -2,6 +2,38 @@ import {intType, jsonType, selectionType, SourceConnector, stringType} from "./t
 import * as React from 'react';
 import {allSingerTaps, SingerTap} from "./singer";
 
+const googleAuthConfigParameters = [
+    {
+        displayName: "Account ID",
+        id: "account_id",
+        type: stringType,
+        required: true
+    },
+    {
+        displayName: "Auth (Client ID)",
+        id: "auth.client_id",
+        type: stringType,
+        required: true
+    },
+    {
+        displayName: "Auth (Client Secret)",
+        id: "auth.client_secret",
+        type: stringType,
+        required: true
+    },
+    {
+        displayName: "Auth (Refresh Token)",
+        id: "auth.refresh_token",
+        type: stringType,
+        required: true
+    },
+    {
+        displayName: "Auth (Service account key JSON)",
+        id: "auth.service_account_key",
+        type: jsonType,
+        required: true
+    },
+];
 
 const facebook: SourceConnector = {
     pic: <svg viewBox="0 0 36 36" fill="url(#gradient)">
@@ -32,7 +64,8 @@ const facebook: SourceConnector = {
         {
             displayName: "Level of data",
             id: "level",
-            type: selectionType(["account_currency", "account_id", "account_name", "ad_id", "ad_name", "adset_id", "adset_name", "campaign_id", "campaign_name", "objective", "buying_type", "cpc", "cpm", "cpp", "ctr", "estimated_ad_recall_rate", "estimated_ad_recallers", "reach", "unique_clicks", "unique_ctr", "frequency", "actions", "conversions", "spend", "impressions"]),
+            defaultValue: "ad",
+            type: selectionType(["ad", "adset", "campaign", "account"], 1),
             documentation:
                 <>
                     One of [ad, adset, campaign, account]. <a href="https://developers.facebook.com/docs/marketing-api/reference/adgroup/insights/">Read more about level</a>
@@ -196,35 +229,9 @@ const googleAnalytics: SourceConnector = {
     displayName: 'Google Analytics',
     id: "google_analytics",
     collectionTypes: ['report'],
-    configParameters: [
-        {
-            displayName: "View ID",
-            id: "view_id",
-            type: stringType,
-            required: true
-        },
-        {
-            displayName: "Auth (Client ID)",
-            id: "auth.client_id",
-            type: stringType
-        },
-        {
-            displayName: "Auth (Client Secret)",
-            id: "auth.client_secret",
-            type: stringType
-        },
-        {
-            displayName: "Auth (Refresh Token)",
-            id: "auth.refresh_token",
-            type: stringType
-        },
-        {
-            displayName: "Auth (Service account key JSON)",
-            id: "auth.service_account_key",
-            type: jsonType
-        },
-    ],
+    configParameters: googleAuthConfigParameters,
 }
+
 
 const googlePlay: SourceConnector = {
     pic: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
@@ -237,35 +244,7 @@ const googlePlay: SourceConnector = {
     id: "google_play",
     collectionTypes: ['earnings', 'sales'],
     collectionParameters: [],
-    configParameters: [
-        {
-            displayName: "Account ID",
-            id: "account_id",
-            type: stringType,
-            required: true
-        },
-        {
-            displayName: "Auth (Client ID)",
-            id: "auth.client_id",
-            type: stringType
-        },
-        {
-            displayName: "Auth (Client Secret)",
-            id: "auth.client_secret",
-            type: stringType
-
-        },
-        {
-            displayName: "Auth (Refresh Token)",
-            id: "auth.refresh_token",
-            type: stringType
-        },
-        {
-            displayName: "Auth (Service account key JSON)",
-            id: "auth.service_account_key",
-            type: jsonType
-        },
-    ],
+    configParameters: googleAuthConfigParameters,
 }
 
 const firebase: SourceConnector = {
@@ -340,6 +319,8 @@ const redis: SourceConnector = {
             displayName: "Redis Port",
             id: "port",
             type: intType,
+            defaultValue: 6379,
+            required: true
         },
         {
             displayName: "Redis Password",

@@ -45,9 +45,10 @@ export interface SelectOption {
 export interface SelectOptionCollection {
     options: SelectOption[]
     /**
-     * Maximum options allowed to be selected
+     * Maximum options allowed to be selected. Undefined means there's no limit in number of possible
+     * selected fields
      */
-    maxOptions: number
+    maxOptions?: number
 }
 
 export const selectionType = (options: string[], maxOptions?: number): ParameterType<SelectOptionCollection>  => {
@@ -73,6 +74,11 @@ export type Parameter = {
      * Type of parameter
      */
     type: ParameterType<any>
+
+    /**
+     * Default value (should be displayed by default)
+     */
+    defaultValue?: any
 
     /**
      *  Flag describes required/optional nature of the field. IF empty - field is optional
