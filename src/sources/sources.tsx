@@ -363,6 +363,7 @@ const singerPic = <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox=
 const
     singer = (singerTap?: SingerTap): SourceConnector => {
         return {
+            isSingerType: true,
             pic: singerTap?.pic || singerPic,
             displayName: singerTap?.displayName || "Singer Tap",
             id: `singer-${singerTap?.tap}`,

@@ -101,6 +101,10 @@ export interface CollectionParameter extends Parameter {
 
 export interface SourceConnector {
     /**
+     * Is it singer source or not, optional parameter.
+     * */
+    isSingerType?: boolean;
+    /**
      * Name of connector that should be displayed
      */
     displayName: string
