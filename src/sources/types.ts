@@ -37,6 +37,10 @@ export const dashDateType: ParameterType<string> = {
     typeName: "dashDate"
 }
 
+export const isoUtcDateType: ParameterType<string> = {
+    typeName: "isoUtcDate"
+}
+
 export interface SelectOption {
     id: string
     displayName: string

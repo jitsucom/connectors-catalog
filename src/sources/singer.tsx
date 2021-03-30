@@ -1,5 +1,80 @@
 import {ReactNode} from "react";
 import * as logos  from './singer_logos'
+import {Parameter, stringType, isoUtcDateType, jsonType} from "./types";
+
+export const singerConfigParams: Record<string, (tap: string) => Parameter> = {
+    catalogJson: (tap: string): Parameter => {return {
+        displayName: "Singer Catalog JSON",
+        id: "catalog",
+        type: jsonType,
+        required: true,
+        documentation: <>
+            Singer <a href="https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#catalog">catalog</a> that defines
+            data layout. <a href={`https://github.com/singer-io/${tap}`}>Read catalog documentation for {tap}</a>
+        </>
+    }},
+    stateJson: (tap: string): Parameter => {return {
+        displayName: "Singer Initial State JSON",
+        id: "state",
+        type: jsonType,
+        documentation: <>
+            Singer initial <a href="https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#state">state</a>. For most cases
+            should be empty
+
+            <a href={`https://github.com/singer-io/${tap}`}>Read documentation for {tap}</a>
+        </>
+    }},
+    propertiesJson: (tap: string): Parameter => {return {
+        displayName: "Singer Properties JSON",
+        id: "properties",
+        type: jsonType,
+        documentation: <>
+            Singer properties that defines resulting schema. <a href={`https://github.com/singer-io/${tap}`}>Read documentation for {tap}</a>
+        </>
+    }},
+    configJson: (tap: string): Parameter => {return {
+        displayName: "Singer Config JSON",
+        id: "config",
+        type: jsonType,
+        required: true,
+        documentation: <>
+            Singer <a href={"https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#state"}>configuration</a>. <a href={`https://github.com/singer-io/${tap}`}>Read documentation for {tap}</a>
+        </>
+    }},
+
+}
+
+
+type ParametersCustomization = {
+    /**
+     * Replacement for singerConfigParams.customConfig
+     */
+    customConfig?: Parameter[]
+    legacyProperties?: boolean
+}
+
+/**
+ * Prefix each parameter id with given prefix
+ */
+function prefixParameters(prefix: string, parameters: Parameter[]) {
+    return parameters.map(p => {
+        return {
+            ...p,
+            id: prefix + p.id,
+    }});
+}
+
+/**
+ * Customizes parameters for singer tap.
+ */
+function customParameters(tap: string, params: ParametersCustomization) {
+    return [
+        ...(params.customConfig ? prefixParameters("config.", params.customConfig) : [singerConfigParams.customConfig(tap)]),
+        params.legacyProperties ? singerConfigParams.propertiesJson(tap) : singerConfigParams.catalogJson(tap),
+        singerConfigParams.stateJson(tap)
+
+    ]
+}
 
 export interface SingerTap {
     pic: ReactNode
@@ -8,7 +83,16 @@ export interface SingerTap {
     //we consider this tap as stable and production ready
     stable: boolean
     //We have a native equivalent
-    hasNativeEquivalent: boolean
+    hasNativeEquivalent: boolean,
+    /**
+     * If the tap uses legacy properties.json instead of catalog.json
+     */
+    legacyProperties?: boolean
+    /**
+     * If tap defines it's own parameters instead of
+     * default singer params
+     */
+    parameters?: Parameter[]
 
 }
 
@@ -606,7 +690,39 @@ export const allSingerTaps: SingerTap[] = [
         displayName: "Stripe",
         tap: "tap-stripe",
         stable: true,
-        hasNativeEquivalent: false
+        hasNativeEquivalent: false,
+        parameters: customParameters("tap-stripe", {
+            customConfig: [
+                {
+                    displayName: "Client Secret",
+                    id: "client_secret",
+                    type: stringType,
+                    required: true,
+                    documentation: <>
+                        Client secret ('sk_live_....')
+                    </>
+                },
+                {
+                    displayName: "Account ID",
+                    id: "account_id",
+                    type: stringType,
+                    required: true,
+                    documentation: <>
+                        Account ID ('acct_....')
+                    </>
+                },
+                {
+                    displayName: "Start Date",
+                    id: "start_date",
+                    type: isoUtcDateType,
+                    required: true,
+                    defaultValue: "2020-01-01T00:00:00.000Z",
+                    documentation: <>
+                        Start date
+                    </>
+                }
+            ]
+        })
     },
     {
         pic: logos.tap_surveymonkey,

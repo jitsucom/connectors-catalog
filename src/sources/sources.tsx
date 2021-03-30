@@ -1,6 +1,6 @@
-import {intType, jsonType, selectionType, SourceConnector, stringType} from "./types";
+import {intType, jsonType, Parameter, selectionType, SourceConnector, stringType} from "./types";
 import * as React from 'react';
-import {allSingerTaps, SingerTap} from "./singer";
+import {allSingerTaps, singerConfigParams, SingerTap} from "./singer";
 
 const googleAuthConfigParameters = [
     {
@@ -342,7 +342,7 @@ const singerPic = <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox=
  * Not a common Source connector.
  */
 const
-    singer = (singerTap?: SingerTap): SourceConnector => {
+    singer = (singerTap: SingerTap): SourceConnector => {
         return {
             isSingerType: true,
             pic: singerTap?.pic || singerPic,
@@ -354,53 +354,24 @@ const
                 {
                     displayName: "Singer Tap",
                     id: "tap",
-                    type: selectionType(allSingerTaps.map(tap => tap.tap)),
+                    type: stringType,
                     required: true,
                     documentation: <>Id of Singer Tap</>,
-                    constant: singerTap?.tap || undefined
+                    constant: singerTap.tap
                 },
-                {
-                    displayName: "Singer Config JSON",
-                    id: "config",
-                    type: jsonType,
-                    required: true,
-                    documentation: <>
-                        <a target="_blank" href="https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#config">Read more about Singer Config</a>
-                    </>
-                },
-                {
-                    displayName: "Singer Catalog JSON",
-                    id: "catalog",
-                    type: jsonType,
-                    required: true,
-                    documentation: <>
-                        <a href="https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#catalog">Read more about Singer Catalog</a>
-                    </>
-                },
-                {
-                    displayName: "Singer State JSON",
-                    id: "state",
-                    type: jsonType,
-                    documentation: <>
-                        <a target="_blank" href="https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#state">Read more about Singer State</a>
-                    </>
-                },
-                {
-                    displayName: "Singer Properties JSON",
-                    id: "properties",
-                    type: jsonType,
-                    documentation: <>
-                        Used by some legacy taps (e.g. <a target="_blank" href="https://github.com/singer-io/tap-facebook">Facebook tap</a>)
-                    </>
-                },
+                ...(singerTap.parameters ?? [
+                    singerConfigParams.configJson(singerTap.tap),
+                    singerTap.legacyProperties ? singerConfigParams.propertiesJson(singerTap.tap) : singerConfigParams.catalogJson(singerTap.tap),
+                    singerConfigParams.stateJson(singerTap.tap)
+                ])
             ],
         }
     }
 
 export const allSources = [
-        facebook, redis, firebase, googleAnalytics, googlePlay,
-        singer(), ...allSingerTaps.filter(tap => !tap.hasNativeEquivalent && tap.pic).map(tap => singer(tap))
-    ]
+    facebook, redis, firebase, googleAnalytics, googlePlay,
+    ...allSingerTaps.filter(tap => !tap.hasNativeEquivalent && tap.pic).map(tap => singer(tap))
+]
 
 
 
