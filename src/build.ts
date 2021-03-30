@@ -17,3 +17,11 @@ fs.writeFileSync(__dirname + "/../build/sources.json", JSON.stringify(allSources
     })
     return src;
 }), null, 3));
+
+// fs.writeFileSync(__dirname + '/../build/singer_check', allSources
+//     .filter((src) => src.isSingerType)
+//     .map((src) => {
+//         let tap = src.id.replace("singer-", "");
+//         return `pip3 install ${tap} 2>/dev/null >/dev/null; echo "${tap} $?"; pip-autoremove -y ${tap} 2>/dev/null >/dev/null`
+//     }).join("\n")
+// );

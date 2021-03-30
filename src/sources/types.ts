@@ -65,6 +65,18 @@ export const selectionType = (options: string[], maxOptions?: number): Parameter
     }
 }
 
+export function hiddenConstantParameter(id: string, value: any, type?: ParameterType<any>): Parameter {
+    return {
+        displayName: id,
+        id: id,
+        type: type ?? stringType,
+        defaultValue: value,
+        required: true,
+        constant: value,
+        hidden: true
+    }
+}
+
 export type Parameter = {
     /**
      * Display name (for UI)
@@ -99,6 +111,11 @@ export type Parameter = {
      * it's value should be always constant
      */
     constant?: any
+
+    /**
+     * If parameter should not be displayed (valid only if constant is present)
+     */
+    hidden?: boolean
 }
 
 export interface CollectionParameter extends Parameter {
