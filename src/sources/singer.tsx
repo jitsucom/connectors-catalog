@@ -11,7 +11,8 @@ export const singerConfigParams: Record<string, (tap: string) => Parameter> = {
         documentation: <>
             Singer <a href="https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#catalog">catalog</a> that defines
             data layout. <a href={`https://github.com/singer-io/${tap}`}>Read catalog documentation for {tap}</a>
-        </>
+        </>,
+        defaultValue: {}
     }},
     stateJson: (tap: string): Parameter => {return {
         displayName: "Singer Initial State JSON",
@@ -22,7 +23,8 @@ export const singerConfigParams: Record<string, (tap: string) => Parameter> = {
             should be empty
 
             <a href={`https://github.com/singer-io/${tap}`}>Read documentation for {tap}</a>
-        </>
+        </>,
+        defaultValue: {}
     }},
     propertiesJson: (tap: string): Parameter => {return {
         displayName: "Singer Properties JSON",
@@ -30,7 +32,8 @@ export const singerConfigParams: Record<string, (tap: string) => Parameter> = {
         type: jsonType,
         documentation: <>
             Singer properties that defines resulting schema. <a href={`https://github.com/singer-io/${tap}`}>Read documentation for {tap}</a>
-        </>
+        </>,
+        defaultValue: {}
     }},
     configJson: (tap: string): Parameter => {return {
         displayName: "Singer Config JSON",
@@ -39,9 +42,9 @@ export const singerConfigParams: Record<string, (tap: string) => Parameter> = {
         required: true,
         documentation: <>
             Singer <a href={"https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#state"}>configuration</a>. <a href={`https://github.com/singer-io/${tap}`}>Read documentation for {tap}</a>
-        </>
+        </>,
+        defaultValue: {}
     }},
-
 }
 
 
